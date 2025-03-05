@@ -12,7 +12,6 @@ const sequelize = new Sequelize(
     }
 );
 
-// Test connection
 sequelize.authenticate()
     .then(() => console.log('🔥 PostgreSQL Connected'))
     .catch(err => console.error('❌ PostgreSQL Connection Error:', err));

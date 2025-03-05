@@ -1,15 +1,15 @@
 const Gadget = require("../models/Gadget");
 
-// Utility function to generate a random mission success probability
+
 const generateMissionProbability = () => `${Math.floor(Math.random() * 100) + 1}% success probability`;
 
-// Utility function to generate random gadget codenames
+
 const generateRandomCodename = () => {
   const codenames = ["The Nightingale", "The Kraken", "Ghost Falcon", "Shadow Blade", "Steel Phantom"];
   return codenames[Math.floor(Math.random() * codenames.length)];
 };
 
-// 📌 GET: Retrieve all gadgets with random mission probability
+
 exports.getAllGadgets = async (req, res) => {
   try {
     const gadgets = await Gadget.findAll();
@@ -25,7 +25,7 @@ exports.getAllGadgets = async (req, res) => {
   }
 };
 
-// 📌 POST: Add a new gadget with a random codename
+
 exports.addGadget = async (req, res) => {
   try {
     const name = generateRandomCodename();
@@ -36,7 +36,6 @@ exports.addGadget = async (req, res) => {
   }
 };
 
-// 📌 PATCH: Update an existing gadget
 exports.updateGadget = async (req, res) => {
   try {
     const { id } = req.params;
@@ -54,7 +53,6 @@ exports.updateGadget = async (req, res) => {
   }
 };
 
-// 📌 DELETE: Mark a gadget as "Decommissioned" instead of deleting
 exports.decommissionGadget = async (req, res) => {
   try {
     const { id } = req.params;
@@ -71,8 +69,6 @@ exports.decommissionGadget = async (req, res) => {
   }
 };
 
-
-// POST: Self-destruct sequence
 exports.selfDestructGadget = async (req, res) => {
     try {
         const { id } = req.params;

@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const sequelize = require('./config/database');
 
-dotenv.config(); // Load environment variables
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -13,8 +13,7 @@ const authRoutes = require('./routes/authRoutes');
 app.use('/gadgets', gadgetRoutes);
 app.use('/auth', authRoutes);
 
-// Sync database and start server
-sequelize.sync({ force: false }) // Set to `true` to drop tables and recreate them
+sequelize.sync({ force: false }) 
     .then(() => {
         console.log("📦 Database synced");
         const PORT = process.env.PORT || 5000;
