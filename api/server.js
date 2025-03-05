@@ -1,11 +1,20 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const sequelize = require('./config/database');
+// const {cors} = require('cors');
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+const cors = require('cors');
+
+app.use(cors({
+    origin: "*", 
+    methods: ["GET", "POST", "PATCH", "DELETE"],
+}));
+
 
 const gadgetRoutes = require('./routes/gadgetRoutes');
 const authRoutes = require('./routes/authRoutes');
