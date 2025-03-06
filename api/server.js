@@ -16,6 +16,12 @@ app.use(cors({
 }));
 
 
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+    res.render('docs');
+});
+
 const gadgetRoutes = require('./routes/gadgetRoutes');
 const authRoutes = require('./routes/authRoutes');
 
